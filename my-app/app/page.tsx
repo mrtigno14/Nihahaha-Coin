@@ -124,9 +124,9 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-pink-100">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 " style={{backgroundImage: "url('https://i.imgur.com/9ZMysue.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
       <div className="flex justify-center items-center">
-        <div className="w-120 bg-white p-6 rounded-lg shadow-lg">
+        <div className="w-120 bg-white p-6 rounded-lg shadow-lg" style={{ fontFamily: 'sans-serif' }}>
           <h1 className="text-2xl font-bold text-center mb-6">
             KoyukiNft
           </h1>
