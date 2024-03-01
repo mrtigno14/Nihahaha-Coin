@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { BrowserProvider } from "ethers";
 import { getContract } from "../config";
 import Image from "next/image";
-import koyukiImage from '/workspaces/Arbitrum-Certificate/my-app/koyuki.png';
+import koyukiImage from '../koyuki.png';
 
 export default function Home() {
 
