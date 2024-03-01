@@ -4,9 +4,10 @@ import { BrowserProvider } from "ethers";
 import { getContract } from "../config";
 import Image from "next/image";
 import koyukiImage from '/workspaces/Arbitrum-Certificate/koyuki.png';
-import backgroundVideo from '/workspaces/Arbitrum-Certificate/koyuki.mp4';
+
 
 export default function Home() {
+
   const [walletKey, setwalletKey] = useState("");
 
   const [mintingAmount, setMintingAmount] = useState<number>(0);
@@ -123,12 +124,16 @@ export default function Home() {
     });
   };
 
+
+
   return (
 <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-pink-100" style={{ backgroundImage: `url(${koyukiImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+
+    
     <div className="flex justify-center items-center">
       <div className="w-120 bg-white p-6 rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold text-center mb-6">
-          KoyukiNft Minting
+          KoyukiNft
         </h1>
 
         <center>
