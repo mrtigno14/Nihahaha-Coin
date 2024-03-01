@@ -4,6 +4,7 @@ import { BrowserProvider } from "ethers";
 import { getContract } from "../config";
 import Image from "next/image";
 import koyukiImage from '/workspaces/Arbitrum-Certificate/koyuki.png';
+import backgroundVideo from '/workspaces/Arbitrum-Certificate/koyuki.mp4';
 
 export default function Home() {
   const [walletKey, setwalletKey] = useState("");
@@ -123,80 +124,73 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-  <div className="flex justify-center items-center ">
-    <div className="w-96 bg-white p-6 rounded-lg shadow-lg">
-      <h1 className="text-2xl font-bold text-center mb-6">
-        KoyukiNft Minting
-      </h1>
+<main className="flex min-h-screen flex-col items-center justify-between p-24 bg-pink-100" style={{ backgroundImage: `url(${koyukiImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="flex justify-center items-center">
+      <div className="w-120 bg-white p-6 rounded-lg shadow-lg">
+        <h1 className="text-2xl font-bold text-center mb-6">
+          KoyukiNft Minting
+        </h1>
 
-      <img src= {koyukiImage} alt="Mint Image" width={100} height={100} />
+        <center>
+          <Image src={koyukiImage} alt="" width={200} height={200} />
+        </center>
 
-      <div className="text-center">
-        <button
-          onClick={() => {
-            connectWallet();
-          }}
-          className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded mt-2 "
-        >
-          Connect Wallet
-        </button>
-      </div>
+        <div className="text-center mt-6">
+          <button
+            onClick={() => connectWallet()}
+            className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full mt-2"
+          >
+            Connect Wallet
+          </button>
+        </div>
 
-      <div className="text-center mb-6 mt-10">
-        <h2 className="text-lg font-semibold">Mint</h2>
-        <input
-          type="number"
-          className=" border rounded-md p-2 focus:outline-none focus:ring-4 focus:ring-yellow-500 focus:border-transparent"
-          value={mintingAmount}
-          onChange={(e) => mintAmountChange(e)}
-          placeholder="Enter amount to mint"
-          style={{ color: "black" }}
-        />
-        <button
-          onClick={() => {
-            mintCoin();
-          }}
-          className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded mt-2"
-        >
-          Mint Tokens
-        </button>
-      </div>
+        <div className="grid grid-cols-2 gap-4 mt-10">
+          <div className="flex flex-col items-center">
+            <h2 className="text-lg font-semibold">Mint</h2>
+            <input
+              type="number"
+              className="border rounded-md p-2 w-full focus:outline-none focus:ring-4 focus:ring-yellow-500 focus:border-transparent"
+              value={mintingAmount}
+              onChange={(e) => mintAmountChange(e)}
+              placeholder="Enter amount to mint"
+              style={{ color: "black", maxWidth: '200px' }}
+            />
+            <button
+              onClick={() => mintCoin()}
+              className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full mt-2"
+            >
+              Mint Tokens
+            </button>
+          </div>
+          <div className="flex flex-col items-center">
+            <h2 className="text-lg font-semibold">Stake</h2>
+            <input
+              type="number"
+              className="border rounded-md p-2 w-full focus:outline-none focus:ring-4 focus:ring-yellow-500 focus:border-transparent"
+              value={stakingAmount}
+              onChange={(e) => stakeAmountChange(e)}
+              placeholder="Enter amount to stake"
+              style={{ color: "black", maxWidth: '200px' }}
+            />
+            <button
+              onClick={() => stakeCoin()}
+              className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full mt-2"
+            >
+              Stake Tokens
+            </button>
+          </div>
+        </div>
 
-      <div className="text-center mb-6">
-        <h2 className="text-lg font-semibold">Stake</h2>
-        <input
-          type="number"
-          className="border rounded-md p-2 focus:outline-none focus:ring-4 focus:ring-yellow-500 focus:border-transparent"
-          value={stakingAmount}
-          onChange={(e) => stakeAmountChange(e)}
-          placeholder="Enter amount to stake"
-          style={{ color: "black" }}
-        />
-        <button
-          onClick={() => {
-            stakeCoin();
-          }}
-          className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded mt-2"
-        >
-          Stake Tokens
-        </button>
-      </div>
-
-      <div className="text-center">
-        <h2 className="text-lg font-semibold">Withdraw</h2>
-        <button
-          onClick={() => {
-            withdrawCoin();
-          }}
-          className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded mt-2"
-        >
-          Withdraw Tokens
-        </button>
+        <div className="text-center mt-6">
+          <button
+            onClick={() => withdrawCoin()}
+            className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full mt-2"
+          >
+            Withdraw Tokens
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</main>
-
+  </main>
   );
 }
